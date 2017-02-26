@@ -83,7 +83,7 @@ h1 {
   background: #FFF;
 }
 .button_container span {
-  background: #1abc9c;
+  background: #fff;
   border: none;
   height: 5px;
   width: 100%;
@@ -214,7 +214,8 @@ h1 {
 	
 	<!-- ASSETS -->
 	<a-asset-item id="ivar3d" src="models/ivar3d.dae">
-	<a-asset-item id="island" src="models/island.dae">
+	<a-asset-item id="island" src="models/ivarisland.dae">
+	<a-asset-item id="islandclouds" src="models/ivarislandclouds.dae">
 	<img id="groundTexture" src="textures/wooden-floor.jpg">
    <img id="wallTexture" src="img/norway_fjord-wide.jpg">
   </a-assets>
@@ -222,14 +223,17 @@ h1 {
 
   
   <!-- TEXT and LOGO -->
-<a-collada-model src="#island" position="117 -98 -159" scale="100 100 100">
-		
+<a-collada-model src="#island" position="0 -1 0" scale="20 20 20" rotation="0 40 0">
+			<a-collada-model src="#islandclouds" >
+				<a-animation attribute="position" to="0 0.1 0" direction="alternate" dur="2000"
+						repeat="indefinite"></a-animation>
+			</a-collada-model>
 		</a-collada-model>
   
   
-		<a-collada-model src="#ivar3d" position="-2.7 1.5 -4" scale="3 3 3">
+		<!-- <a-collada-model src="#ivar3d" position="-2.7 1.5 -4" scale="3 3 3"> 
 		<a-animation attribute="position" to="-2.7 1.55 -4" dur="2000" direction="alternate" repeat="indefinite">
-		</a-collada-model>
+		</a-collada-model> -->
 		
   
   <!-- TESTBOX -->
@@ -249,8 +253,8 @@ h1 {
 	<!-- <a-sound src="https://cdn.aframe.io/basic-guide/audio/backgroundnoise.wav" autoplay="true" position="-3 2 -5"></a-sound> -->
 	
 	<!--SKY AND ROOM SETUP-->
-	<a-sun-sky material="sunPosition: -0.2 0.5 -5"></a-sun-sky>
-	<!--<a-sky src="#skyTexture"></a-sky>-->
+	
+	<a-sky color=#03C0E2></a-sky>
 	<!--<a-plane material="opacity: 0.950" src="#groundTexture" rotation="-90 0 0" width="10" height="10"></a-plane>-->
 	
 	<!-- WALL -->
@@ -261,23 +265,17 @@ h1 {
 	<a-plane material="opacity: 0.550" color=#ccc position="0 2.5 5" rotation="0 180 0" width="10" height="5"></a-plane> 
 	-->
 	
-	<!-- SUN -->
-	<a-sun-sky sun-position-setter>
-        <a-entity id="orbit">
-          <a-animation attribute="rotation" from="0 0 0" to="0 360 0" dur="1000000"
-                       repeat="indefinite" easing="linear"></a-animation>
-        </a-entity>
-      </a-sun-sky>
+	
 	
 	<!-- LIGHTING -->
-	<a-light type="ambient" color="#445451"></a-light>
-  <a-light type="point" intensity="2" light="angle:52.54;decay:4.42;intensity:0.94;type:point;target:null" position="0 6 0"></a-light>
+	<a-light type="ambient" intensity="2.2" color="#445451"></a-light>
+  <a-light type="point" intensity="2" light="angle:52.54;decay:4.42;intensity:0.94;type:point;target:null" position="-17 68 -87"></a-light>
   
   
   
   <!-- CAMERA -->
-  <a-camera>
-    <a-cursor></a-cursor>
+  <a-camera rotation="-20 90 0" position="100 30 0">
+    <a-cursor raycaster crawling-cursor></a-cursor>
 	
   </a-camera>
     </a-scene>
