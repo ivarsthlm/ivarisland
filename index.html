@@ -236,7 +236,7 @@ h1 {
 <a-collada-model src="#island" position="0 -1 0" scale="20 20 20" rotation="0 40 0">
 			<a-collada-model src="#islandclouds" >
 				<a-animation attribute="position" to="0 0.1 0" direction="alternate" dur="2000"
-						repeat="indefinite"></a-animation>
+						repeat="indefinite" ease-in-out></a-animation>
 			</a-collada-model>
 		</a-collada-model>
   
@@ -281,12 +281,14 @@ h1 {
   <!-- CAMERA -->
   
    
+  
+  <a-camera position="100 30 0" rotation="-20 90 0" universal-controls="movementControls: checkpoint" checkpoint-controls="mode: animate" mouse-controls="pointerlockEnabled: false">
 
-  <a-camera position="100 30 0" rotation="-20 90 0" universal-controls="movementControls: checkpoint"
-                checkpoint-controls="mode: animate" mouse-controls="pointerlockEnabled: false">
+  <a-animation attribute="position" delay="2000" to="1 2 1" dur="6000" repeat=0></a-animation>
+ 
     <a-cursor geometry="primitive: ring; radius-outer: 0.02; radius-inner: 0.006" material="color: lightblue" opacity="0.7"></a-cursor>
 	  </a-camera>
-	  
+
 
 	 
 	  
