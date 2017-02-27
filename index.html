@@ -7,6 +7,7 @@
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 			<script src="script/aframe-extras.js"></script>
 			<script src="script/aframe-mouse-cursor-component.min.js"></script>
+			<script src="script/aframe-physics-system.js"></script>
 	<style>
 	@font-face {
     font-family: NordicNarrowRegular;
@@ -215,7 +216,7 @@ h1 {
 	  </div>
     </div>
   
-    <a-scene>
+    <a-scene physics>
 	<a-assets>
 	
 	
@@ -226,6 +227,8 @@ h1 {
 	<!-- MODELS -->	
 	<a-asset-item id="ivar3d" src="models/ivar3d.dae">
 	<a-asset-item id="island" src="models/ivarisland.dae">
+	<a-asset-item id="island-obj" src="models/ivarisland.obj">
+	<a-asset-item id="island-mtl" src="models/ivarisland.mtl">
 	<a-asset-item id="islandclouds" src="models/ivarislandclouds.dae">
 	
    <img id="wallTexture" src="img/norway_fjord-wide.jpg">
@@ -233,13 +236,13 @@ h1 {
   
 
   
-  <!-- TEXT and LOGO -->
-<a-collada-model src="#island" position="0 -1 0" scale="20 20 20" rotation="0 40 0">
+  <!-- ISLAND -->
+	<a-obj-model src="#island-obj" mtl="#island-mtl" position="0 -1 0" scale="20 20 20" rotation="0 40 0">
 			<a-collada-model src="#islandclouds" >
 				<a-animation attribute="position" to="0 0.1 0" direction="alternate" dur="2000"
 						repeat="indefinite" ease-in-out></a-animation>
 			</a-collada-model>
-		</a-collada-model>
+		</a-obj-model>
   
   
 		<!-- <a-collada-model src="#ivar3d" position="-2.7 1.5 -4" scale="3 3 3"> 
@@ -250,15 +253,13 @@ h1 {
   <!-- TESTBOX -->
  
   
-	<a-box position="4 0.25 -4" color="brown" rotation="0 0 0" scale="0.5 0.5 0.5">
-		<a-animation attribute="position" to="4 0.26 -4" direction="alternate" dur="2000"
-      repeat="indefinite"></a-animation>
+	<a-box position="4 1.25 -4" color="brown" rotation="0 0 0" scale="1 1 1" static-body>
+		<!--<a-animation attribute="position" to="4 0.26 -4" direction="alternate" dur="2000"
+      repeat="indefinite"></a-animation> 
 	  <a-animation attribute="scale" begin="mouseenter" dur="300" to="0.6 0.6 0.6"></a-animation>
-  <a-animation attribute="scale" begin="mouseleave" dur="300" to="0.5 0.5 0.5"></a-animation>
+  <a-animation attribute="scale" begin="mouseleave" dur="300" to="0.5 0.5 0.5"></a-animation> -->
   
 </a-box>
-
-	</a-box>
 	
 	 <!-- Checkpoints -->
       <a-entity position="4 0.25 -4">
@@ -271,6 +272,7 @@ h1 {
 	<!--SKY AND ROOM SETUP-->
 	
 	<a-sky color=#03C0E2></a-sky>
+	<a-grid material="visible: false;" rotation="0 90 0" static-body></a-grid>
 	
 	
 	<!-- LIGHTING -->
@@ -279,16 +281,25 @@ h1 {
   
   
   
-  <!-- CAMERA -->
+  <!-- CAMERA --> 
   
    
   
-  <a-camera position="100 30 0" rotation="-20 90 0" universal-controls="movementControls: checkpoint" checkpoint-controls="mode: animate" mouse-controls="pointerlockEnabled: false" mouse-cursor>
+  <a-entity camera 
+  kinematic-body 
+  position="1 20 0"
+  rotation="-20 90 0"
+  universal-controls="movementControls: custom, gamepad, checkpoint, keyboard, touch;"
+  checkpoint-controls="mode: animate"
+  mouse-controls="pointerlockEnabled: false" 
+  mouse-cursor
+  jump-ability
+  >
 
-  <a-animation attribute="position" delay="2000" to="1 2 1" dur="6000" repeat=0></a-animation>
+  <!-- <a-animation attribute="position" delay="2000" to="1 5 1" dur="6000" repeat=0></a-animation> -->
  
     <a-cursor geometry="primitive: ring; radius-outer: 0.02; radius-inner: 0.006" material="color: lightblue" opacity="0.7"></a-cursor>
-	  </a-camera>
+	  </a-entity>
 
 
 	 
