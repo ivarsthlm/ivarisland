@@ -204,7 +204,7 @@ h1 {
         <ul>
 		
           <li><a href="#" onClick="$('#overlay').toggleClass('open'); $('.button_container').toggleClass('active');">Explore</a></li>
-          <li><a href="#">About</a></li>
+          <li><a href="#" onClick="">About</a></li>
           <li><a href="#">Work</a></li>
           <li><a href="#">Contact</a></li>
         </ul>
@@ -268,11 +268,17 @@ h1 {
   
   
   <!-- CAMERA -->
-  <a-camera rotation="-20 90 0" position="100 30 0">
+  
+  <a-entity id='cameraWrapper' position="100 30 0">
+  <a-camera rotation="-20 90 0">
     <a-cursor geometry="primitive: ring; radius-outer: 0.02; radius-inner: 0.006" material="color: lightblue" opacity="0.7"></a-cursor>
-	
-  </a-camera>
+	  </a-camera>
+	  </a-entity>
+	  
+	   
     </a-scene>
+	
+	
 	
   <script>
 	$('#toggle').click(function() {
