@@ -202,8 +202,8 @@ h1 {
   <!-- MENU -->
     <div class="container">
        </div>
-	  <div class="button_container active" id="toggle"><span class="top"></span><span class="middle"></span><span class="bottom"></span></div>
-    <div class="overlay open" id="overlay">
+	  <div class="button_container" id="toggle"><span class="top"></span><span class="middle"></span><span class="bottom"></span></div>
+    <div class="overlay" id="overlay">
 	      <nav class="overlay-menu">
         <ul>
 
@@ -219,7 +219,7 @@ h1 {
 	  </div>
     </div>
 
-    <a-scene <!--physics="gravity:-7"-->>
+    <a-scene fog="type: exponential; color: #005B5F; density: 0.025;" <!--physics="gravity:-7"-->>
 	<a-assets>
 
 
@@ -243,14 +243,31 @@ h1 {
 						repeat="indefinite" ease-in-out></a-animation>
 			</a-collada-model>
 			</a-entity>
-
+			
 
 
 		<!-- <a-collada-model src="#ivar3d" position="-2.7 1.5 -4" scale="3 3 3">
 		<a-animation attribute="position" to="-2.7 1.55 -4" dur="2000" direction="alternate" repeat="indefinite">
 		</a-collada-model> -->
+		
+		<!-- <a-ring color="#ffce00" radius-inner="1" radius-outer="1.5"  position="0 2.6 -6" scale="3 3 3"></a-ring> -->
 
+		
+<!-- INTRO START -->		
+		
+		<a-text align=center anchor=center font="kelsonsans" value="We Put You" position="0 3.5 -6" scale="3 3 3"></a-text>
+		<a-text align=center anchor=center font="kelsonsans" value="IN THE CENTER" position="0 2.5 -6" scale="4 4 4"></a-text>
+		<a-text align=center anchor=center font="kelsonsans" value="Of The Story" position="0 1.5 -6" scale="3 3 3"></a-text>
 
+<!-- MEET US -->
+		<a-text align=right anchor=right font="kelsonsans" value="Meet" position="6 4.5 6" scale="3 3 3" rotation="0 -90 0"></a-text>
+		<a-text align=right anchor=right font="kelsonsans" value="THE TEAM" position="6 3.5 6" scale="4 4 4" rotation="0 -90 0"></a-text>
+		
+<!-- EXPLORE WITH US -->
+		<a-text align=right anchor=right font="kelsonsans" value="GO EXPLORING" position="-6 3.5 0.6" scale="3 3 3" rotation="0 90 0"></a-text>
+		<a-text align=right anchor=right font="kelsonsans" value="With Us" position="-6 2.5 0.6" scale="4 4 4" rotation="0 90 0"></a-text>
+		
+		
   <!-- TESTBOX -->
 
 
@@ -262,14 +279,7 @@ h1 {
 
 </a-box>
 
-	 <!-- Checkpoints -->
-      <a-entity position="4 0.25 -4">
-        <a-cylinder checkpoint radius="1" height="0.1" position="-5.46 1.17 -9.24" color="#39BB82"></a-cylinder>
-        <a-cylinder checkpoint radius="1" height="0.1" position="10 1.17 9.15" color="#39BB82"></a-cylinder>
-
-      </a-entity>
-
-
+	
 	<!--SKY AND ROOM SETUP-->
 
 	<a-sky color=#03C0E2></a-sky>
@@ -278,7 +288,7 @@ h1 {
 
 	<!-- LIGHTING -->
 	<a-light type="ambient" intensity="2.2" color="#445451"></a-light>
-  <a-light type="point" intensity="2" light="angle:52.54;decay:4.42;intensity:0.94;type:point;target:null" position="-17 68 -87"></a-light>
+  <a-light type="point" intensity="2" light="angle:52.54;decay:4.42;intensity:0.94;type:point;target:null" position="-17 10 -87"></a-light>
 
 
 
@@ -288,9 +298,10 @@ h1 {
 
   <a-camera id="camera" animation="property: position; startEvents: animate"
 
-  position="180 50 0"
-  rotation="-20 90 0"
-  universal-controls="movementControls: custom, gamepad, checkpoint, keyboard, touch;"
+  position="0 1 0"
+  rotation="0 0 0"
+  universal-controls="movementControls: custom, gamepad, checkpoint, touch;"
+  wasd-controls="enabled: false;"
   checkpoint-controls="mode: animate"
   mouse-controls="pointerlockEnabled: false"
   mouse-cursor
@@ -300,7 +311,7 @@ h1 {
 
   <!--<a-animation attribute="position" delay="2000" to="1 2 1" dur="6000" repeat=0></a-animation> -->
 
-    <a-cursor geometry="primitive: ring; radius-outer: 0.02; radius-inner: 0.006" material="color: lightblue" opacity="0.7"></a-cursor>
+    <!-- <a-cursor geometry="primitive: ring; radius-outer: 0.02; radius-inner: 0.006" material="color: lightblue" opacity="0.7"></a-cursor> -->
 	  </a-camera>
 
 
