@@ -231,6 +231,8 @@ h1 {
 	<a-asset-item id="ivar3d" src="models/ivar3d.dae"></a-asset-item>
 	<a-asset-item id="islandclouds" src="models/ivarislandclouds.dae"></a-asset-item>
 	<a-asset-item id="island-gltf" src="models/ivarisland.gltf"></a-asset-item>
+		<a-asset-item id="tent-obj" src="models/tent/tent.obj"></a-asset-item>
+		<a-asset-item id="tent-mtl" src="models/tent/tent.mtl"></a-asset-item>
 
   </a-assets>
 
@@ -244,7 +246,9 @@ h1 {
 			</a-collada-model>
 			</a-entity>
 			
-
+			
+			<a-entity onClick="$('#overlay').toggleClass('open'); $('.button_container').toggleClass('active');" obj-model="obj: #tent-obj; mtl: #tent-mtl"  position="7 0.5 -1" scale="0.5 0.5 0.5" rotation="0 160 2">
+</a-entity>
 
 		<!-- <a-collada-model src="#ivar3d" position="-2.7 1.5 -4" scale="3 3 3">
 		<a-animation attribute="position" to="-2.7 1.55 -4" dur="2000" direction="alternate" repeat="indefinite">
@@ -260,24 +264,15 @@ h1 {
 		<a-text align=center anchor=center font="kelsonsans" value="Of The Story" position="0 1.5 -6" scale="3 3 3"></a-text>
 
 <!-- MEET US -->
-		<a-text align=right anchor=right font="kelsonsans" value="Meet" position="6 4.5 6" scale="3 3 3" rotation="0 -90 0"></a-text>
-		<a-text align=right anchor=right font="kelsonsans" value="THE TEAM" position="6 3.5 6" scale="4 4 4" rotation="0 -90 0"></a-text>
+		<a-text align=right anchor=right font="kelsonsans" value="Meet" position="6 4.5 4" scale="3 3 3" rotation="0 -90 0"></a-text>
+		<a-text align=right anchor=right font="kelsonsans" value="THE TEAM" position="6 3.5 4" scale="4 4 4" rotation="0 -90 0"></a-text>
 		
 <!-- EXPLORE WITH US -->
 		<a-text align=right anchor=right font="kelsonsans" value="GO EXPLORING" position="-6 3.5 0.6" scale="3 3 3" rotation="0 90 0"></a-text>
 		<a-text align=right anchor=right font="kelsonsans" value="With Us" position="-6 2.5 0.6" scale="4 4 4" rotation="0 90 0"></a-text>
 		
 		
-  <!-- TESTBOX -->
-
-
-	<a-box position="4 1.25 -4" color="brown" rotation="0 0 0" scale="1 1 1" static-body>
-		<!--<a-animation attribute="position" to="4 0.26 -4" direction="alternate" dur="2000"
-      repeat="indefinite"></a-animation>
-	  <a-animation attribute="scale" begin="mouseenter" dur="300" to="0.6 0.6 0.6"></a-animation>
-  <a-animation attribute="scale" begin="mouseleave" dur="300" to="0.5 0.5 0.5"></a-animation> -->
-
-</a-box>
+ 
 
 	
 	<!--SKY AND ROOM SETUP-->
@@ -287,8 +282,8 @@ h1 {
 
 
 	<!-- LIGHTING -->
-	<a-light type="ambient" intensity="2.2" color="#445451"></a-light>
-  <a-light type="point" intensity="2" light="angle:52.54;decay:4.42;intensity:0.94;type:point;target:null" position="-17 10 -87"></a-light>
+	
+  <a-light type="point" intensity="2" light="angle:52.54;decay:4.42;intensity:0.94;type:point;target:null" position="5 1.5 0.46"></a-light>
 
 
 
@@ -300,7 +295,7 @@ h1 {
 
   position="0 1 0"
   rotation="0 0 0"
-  universal-controls="movementControls: custom, gamepad, checkpoint, touch;"
+  universal-controls="movementControls: custom, gamepad, checkpoint;"
   wasd-controls="enabled: false;"
   checkpoint-controls="mode: animate"
   mouse-controls="pointerlockEnabled: false"
@@ -319,6 +314,8 @@ h1 {
 
 
     </a-scene>
+	
+	test
 
 
 
